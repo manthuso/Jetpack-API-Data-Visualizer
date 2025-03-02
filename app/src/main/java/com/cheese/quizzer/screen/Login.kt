@@ -124,6 +124,6 @@ fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
 fun LoginPagePreview() {
     val navController = rememberNavController()
     QuizzerTheme {
-        LoginPage(navController = navController)
+        LoginPage(navController = navController, authViewModel = ViewModelAuth())
     }
 }
