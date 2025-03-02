@@ -34,10 +34,11 @@ import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.cheese.quizzer.GreetingLogin
+import com.cheese.quizzer.ViewModelAuth
 import com.cheese.quizzer.ui.theme.QuizzerTheme
 
 @Composable
-fun LoginPage(navController: NavHostController) {
+fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center) {
@@ -92,8 +93,10 @@ fun LoginPage(navController: NavHostController) {
             Spacer(modifier = Modifier.height(20.dp))
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp))
+
+            //Botão de login
             Button(
-                onClick = { },
+                onClick = {authViewModel.Login(username.value.text, password.value.text) },
                 shape = RoundedCornerShape(50.dp),
                 modifier = Modifier
                     .fillMaxWidth()
