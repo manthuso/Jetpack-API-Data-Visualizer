@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "75627933263",
+    "project_id": "quizzer-quiz",
+    "storage_bucket": "quizzer-quiz.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75627933263:android:aa3c88116b23195e31443a",
+        "android_client_info": {
+          "package_name": "com.cheese.quizzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75627933263-7l8o4rmn53mqiv13amrf3q2gajtqncii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG9lqCtmN-2bxW1pEytLC-pmnV4Z50-NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75627933263-7l8o4rmn53mqiv13amrf3q2gajtqncii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
