@@ -18,7 +18,7 @@ fun ScreenMain(modifier: Modifier){
         startDestination = Routes.Login.route) {
 
         composable(Routes.Login.route) {
-            LoginPage(navController = navController)
+            LoginPage(navController = navController, authViewModel = ViewModelAuth())
         }
         composable(Routes.SignUp.route) {
             SignUp(navController = navController, authViewModel = ViewModelAuth())

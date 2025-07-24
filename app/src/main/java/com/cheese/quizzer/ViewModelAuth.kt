@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 
 class ViewModelAuth : ViewModel() {
@@ -41,7 +43,18 @@ class ViewModelAuth : ViewModel() {
                 if(task.isSuccessful) {
                     _authState.value = AuthState.Authenticated
                 } else {
-                    _authState.value = AuthState.Failure()
+                    val exception = task.exception
+                    when (exception) {
+                        is FirebaseAuthInvalidCredentialsException -> {
+                            _authState.value = AuthState.Failure("Invalid Email or Password")
+                        }
+                        is FirebaseAuthInvalidUserException -> {
+                            _authState.value = AuthState.Failure("User not found")
+                            }
+                        else -> {
+                            _authState.value = AuthState.Failure("Something went wrong, try again or later")
+                        }
+                    }
                 }
             }
     }

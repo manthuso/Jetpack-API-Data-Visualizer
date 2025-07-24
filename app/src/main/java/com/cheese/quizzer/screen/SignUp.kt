@@ -22,6 +22,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -44,7 +46,7 @@ import com.cheese.quizzer.component.CustomTopAppBar
 
 @Composable
 fun SignUp(navController: NavHostController, authViewModel: ViewModelAuth) {
-    val authState = authViewModel.authState.observeAsState()
+
 
     Box(modifier = Modifier.fillMaxSize()) {
         ScaffoldWithTopBar(navController = navController, authViewModel)
@@ -53,6 +55,7 @@ fun SignUp(navController: NavHostController, authViewModel: ViewModelAuth) {
 
 @Composable
 fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewModelAuth) {
+    val signupState by authViewModel.authState.observeAsState()
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center) {
@@ -105,9 +108,29 @@ fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewMode
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp))
 
+
+            if (signupState is ViewModelAuth.AuthState.Failure) {
+                val mensagem = (signupState as ViewModelAuth.AuthState.Failure).message
+
+                Text(
+                    text = mensagem ?: "Email ou senha incorretos -teste-",
+                    color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.padding(bottom = 8.dp)
+                )
+            }
+            LaunchedEffect(signupState) {
+                if (signupState is ViewModelAuth.AuthState.Authenticated) {
+                    navController.navigate(Routes.Login.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
+                        }
+                    }
+                }
+
+            }
             //Botão de Criar a Conta do user
             Button(
-                onClick = {authViewModel.SignUp(username.value.text, password.value.text); navController.navigate(Routes.Login.route)},
+                onClick = {authViewModel.SignUp(username.value.text, password.value.text) },
                 shape = RoundedCornerShape(50.dp),
                 modifier = Modifier
                     .fillMaxWidth()

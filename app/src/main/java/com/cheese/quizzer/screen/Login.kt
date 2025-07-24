@@ -17,6 +17,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -39,6 +41,8 @@ import com.cheese.quizzer.ui.theme.QuizzerTheme
 
 @Composable
 fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
+    val loginState by authViewModel.authState.observeAsState()
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center) {
@@ -94,9 +98,19 @@ fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp))
 
-            //Botão de login
+            if (loginState is ViewModelAuth.AuthState.Failure) {
+                val mensagem = (loginState as ViewModelAuth.AuthState.Failure).message
+
+                Text(
+                    text = mensagem ?: "Email ou senha incorretos -teste-",
+                    color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.padding(bottom = 8.dp)
+                )
+            }
+
+            //Botão de  login
             Button(
-                onClick = {authViewModel.Login(username.value.text, password.value.text) },
+                onClick = {authViewModel.Login(username.value.text.trim(), password.value.text) },
                 shape = RoundedCornerShape(50.dp),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -110,7 +124,7 @@ fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
                 onClick = { navController.navigate(Routes.ForgotPassword.route) },
                 style = TextStyle(
                     fontSize = 16.sp,
-                    color = MaterialTheme.colorScheme.onBackground
+                    color = MaterialTheme.colorScheme.primary
                 )
             )
         }

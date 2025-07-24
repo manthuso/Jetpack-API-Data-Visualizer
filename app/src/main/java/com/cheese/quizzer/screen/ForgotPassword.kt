@@ -41,7 +41,7 @@ fun ScaffoldWithTopBarForgotPass(navController: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "I Forgor",
+                    text = "Teste",
                     fontSize = 30.sp,
                 )
             }
