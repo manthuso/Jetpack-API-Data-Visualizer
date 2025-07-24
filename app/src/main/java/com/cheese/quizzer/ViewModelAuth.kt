@@ -28,6 +28,10 @@ class ViewModelAuth : ViewModel() {
         }
     }
 
+    fun resetAuthState() {
+        _authState.value = AuthState.UnAuthenticated
+    }
+
 
     //Faz Login do user
     fun Login(email : String, password : String) {

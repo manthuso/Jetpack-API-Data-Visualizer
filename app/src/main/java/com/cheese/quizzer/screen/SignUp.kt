@@ -56,6 +56,21 @@ fun SignUp(navController: NavHostController, authViewModel: ViewModelAuth) {
 @Composable
 fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewModelAuth) {
     val signupState by authViewModel.authState.observeAsState()
+
+    LaunchedEffect(Unit) {
+        authViewModel.resetAuthState()
+    }
+
+    LaunchedEffect(signupState) {
+        if (signupState is ViewModelAuth.AuthState.Authenticated) {
+            navController.navigate(Routes.Login.route) {
+                popUpTo(navController.graph.startDestinationId) {
+                    inclusive = true
+                }
+            }
+        }
+    }
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center) {
@@ -118,16 +133,8 @@ fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewMode
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
             }
-            LaunchedEffect(signupState) {
-                if (signupState is ViewModelAuth.AuthState.Authenticated) {
-                    navController.navigate(Routes.Login.route) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            inclusive = true
-                        }
-                    }
-                }
 
-            }
+
             //Botão de Criar a Conta do user
             Button(
                 onClick = {authViewModel.SignUp(username.value.text, password.value.text) },
@@ -139,14 +146,6 @@ fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewMode
             { Text(text = "Create Account") }
 
             Spacer(modifier = Modifier.height(20.dp))
-            ClickableText(
-                text = AnnotatedString("Forgot password?"),
-                onClick = { navController.navigate(Routes.ForgotPassword.route) },
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    color = MaterialTheme.colorScheme.onBackground
-                )
-            )
         }
     }
 }
