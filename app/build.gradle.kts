@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    implementation("androidx.navigation:navigation-compose:2.4.0-alpha04")
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -53,6 +53,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.logging.interceptor)
+
+
 
     //FireBase
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))

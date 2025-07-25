@@ -1,10 +1,9 @@
-package com.cheese.quizzer.screen
+package com.cheese.quizzer.presentation.login
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -31,17 +31,29 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.cheese.quizzer.GreetingLogin
 import com.cheese.quizzer.ViewModelAuth
+import com.cheese.quizzer.presentation.navigation.Routes
 import com.cheese.quizzer.ui.theme.QuizzerTheme
 
 @Composable
 fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
     val loginState by authViewModel.authState.observeAsState()
+
+    LaunchedEffect(Unit) {
+        authViewModel.resetAuthState()
+    }
+
+    LaunchedEffect(loginState) {
+        if (loginState is ViewModelAuth.AuthState.Authenticated) {
+            navController.navigate(Routes.HomePage.route) {
+                popUpTo(navController.graph.startDestinationId) {
+                    inclusive = true
+                }
+            }
+        }
+    }
 
     Box(
         modifier = Modifier.fillMaxSize(),
