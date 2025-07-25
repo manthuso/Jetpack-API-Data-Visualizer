@@ -1,11 +1,11 @@
 # Quizzer
-#### Projeto inspirado em uma atividade acadêmica realizada na "Trilha de Desenvolvimento Android" pela Samsung Ocean 
+#### [Projeto inspirado em uma atividade acadêmica realizada na "Trilha de Desenvolvimento Android" pela Samsung Ocean ](https://github.com/manthuso/android-jogo-vivo-ou-morto)
 
 Este é um projeto Android simples que tem duas partes: um sistema de autenticação e a base para um mini-jogo.
 
 Atualmente, o projeto já tem uma tela funcional de Login e Cadastro de usuários, com autenticação pelo Firebase. Toda a interface dessas telas foi feita com Jetpack Compose.
 
-O "Quizzer" é por causa que a ideia é ser um mini-jogo de "Vivo ou Morto" com os personagens de Rick and Morty, da qual ele puxaria algum personagem aleatorio e o jogador precisaria informar se o personagem está vivo ou morto. A base dessa implementação já esta *_quase_* pronta, o app já usa o Retrofit para se comunicar com a The Rick and Morty API e tenta buscar os dados dos personagens.
+O nome "Quizzer" é por causa que a ideia é ser um mini-jogo de "Vivo ou Morto" com os personagens de Rick and Morty, da qual ele puxaria algum personagem aleatorio e o jogador precisaria informar se o personagem está vivo ou morto. A base dessa implementação já esta *_quase_* pronta, o app já usa o Retrofit para se comunicar com a The Rick and Morty API e tenta buscar os dados dos personagens.
 
 O que ainda falta fazer é a tela do jogo em si e implementar o Glide para carregar a imagem de um personagem. A partir daí, o jogador poderá responder se o personagem está vivo ou morto na série.
 
