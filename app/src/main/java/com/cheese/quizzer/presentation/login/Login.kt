@@ -41,13 +41,9 @@ import com.cheese.quizzer.ui.theme.QuizzerTheme
 fun LoginPage(navController: NavHostController, authViewModel: ViewModelAuth) {
     val loginState by authViewModel.authState.observeAsState()
 
-    LaunchedEffect(Unit) {
-        authViewModel.resetAuthState()
-    }
-
     LaunchedEffect(loginState) {
         if (loginState is ViewModelAuth.AuthState.Authenticated) {
-            navController.navigate(Routes.HomePage.route) {
+            navController.navigate(Routes.CharacterScreen.route) {
                 popUpTo(navController.graph.startDestinationId) {
                     inclusive = true
                 }

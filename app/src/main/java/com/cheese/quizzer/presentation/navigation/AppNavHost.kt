@@ -6,6 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cheese.quizzer.ViewModelAuth
+import com.cheese.quizzer.data.CharacterScreen
+import com.cheese.quizzer.data.SignOutButton
 import com.cheese.quizzer.presentation.ForgotPassword
 import com.cheese.quizzer.presentation.home.HomePage
 import com.cheese.quizzer.presentation.login.LoginPage
@@ -31,8 +33,12 @@ fun ScreenMain(modifier: Modifier){
         }
         composable(Routes.HomePage.route) {
             HomePage(navController = navController, authViewModel = ViewModelAuth())
-
         }
+        composable(Routes.CharacterScreen.route) {
+            CharacterScreen(navController = navController, authViewModel = ViewModelAuth())
+        }
+
+
 
     }
 }

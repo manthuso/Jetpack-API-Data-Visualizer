@@ -37,15 +37,13 @@ import com.cheese.quizzer.presentation.navigation.Routes
 
 @Composable
 fun SignUp(navController: NavHostController, authViewModel: ViewModelAuth) {
-
-
     Box(modifier = Modifier.fillMaxSize()) {
-        ScaffoldWithTopBar(navController = navController, authViewModel)
+        SignUpPage(navController = navController, authViewModel)
     }
 }
 
 @Composable
-fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewModelAuth) {
+fun SignUpPage(navController: NavHostController, authViewModel: ViewModelAuth) {
     val signupState by authViewModel.authState.observeAsState()
 
     LaunchedEffect(Unit) {
@@ -54,7 +52,7 @@ fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewMode
 
     LaunchedEffect(signupState) {
         if (signupState is ViewModelAuth.AuthState.Authenticated) {
-            navController.navigate(Routes.HomePage.route) {
+            navController.navigate(Routes.CharacterScreen.route) {
                 popUpTo(navController.graph.startDestinationId) {
                     inclusive = true
                 }
@@ -97,7 +95,7 @@ fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewMode
             Spacer(modifier = Modifier.height(20.dp))
 
             TextField(
-                label = { Text(text = "Email/Username") },
+                label = { Text(text = "Email") },
                 value = username.value,
                 onValueChange = { username.value = it }
             )
@@ -144,6 +142,6 @@ fun ScaffoldWithTopBar(navController: NavHostController, authViewModel: ViewMode
 @Preview
 @Composable
 fun ScaffoldWithTopBarPreview() {
-    ScaffoldWithTopBar(navController = rememberNavController(), authViewModel = ViewModelAuth())
+    SignUpPage(navController = rememberNavController(), authViewModel = ViewModelAuth())
 }
 

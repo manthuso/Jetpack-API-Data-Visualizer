@@ -5,4 +5,5 @@ sealed class Routes(val route: String) {
     object SignUp : Routes("SignUp")
     object ForgotPassword : Routes("ForgotPassword")
     object HomePage : Routes("HomePage")
+    object CharacterScreen : Routes("CharacterScreen")
 }
