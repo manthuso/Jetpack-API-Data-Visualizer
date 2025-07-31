@@ -20,7 +20,7 @@ O projeto utiliza a [The Rick and Morty API](https://rickandmortyapi.com/) para 
 
 | Tela de Login | Tela de Cadastro | Tela Principal |
 | :-----------: | :--------------: | :-----------: |
-| <img width="180" height="360" alt="image" src="https://github.com/user-attachments/assets/4cd198cc-b6dd-4833-9dd0-4ad5a94e467a" /> | <img width="180" height="360" alt="image" src="https://github.com/user-attachments/assets/f4ee9b10-9fdb-4379-a539-9dbef85d15db" /> | <img width="180" height="360" alt="image" src="https://github.com/user-attachments/assets/d70a244a-8598-414c-8cb0-ebaa92df05fd" /> |
+| <img width="180" height="380" alt="image" src="https://github.com/user-attachments/assets/4cd198cc-b6dd-4833-9dd0-4ad5a94e467a" /> | <img width="180" height="380" alt="image" src="https://github.com/user-attachments/assets/f4ee9b10-9fdb-4379-a539-9dbef85d15db" /> | <img width="180" height="380" alt="image" src="https://github.com/user-attachments/assets/d70a244a-8598-414c-8cb0-ebaa92df05fd" /> |
   
    
  
