@@ -1,28 +1,46 @@
-# Quizzer
-#### [Projeto inspirado em uma atividade acadêmica realizada na "Trilha de Desenvolvimento Android" pela Samsung Ocean ](https://github.com/manthuso/android-jogo-vivo-ou-morto)
+# Jetpack API Data Visualizer
 
-Este é um projeto Android simples que tem duas partes: um sistema de autenticação e a base para um mini-jogo.
-
-Atualmente, o projeto já tem uma tela funcional de Login e Cadastro de usuários, com autenticação pelo Firebase. Toda a interface dessas telas foi feita com Jetpack Compose.
-
-O nome "Quizzer" é por causa que a ideia é ser um mini-jogo de "Vivo ou Morto" com os personagens de Rick and Morty, da qual ele puxaria algum personagem aleatorio e o jogador precisaria informar se o personagem está vivo ou morto. A base dessa implementação já esta *_quase_* pronta, o app já usa o Retrofit para se comunicar com a The Rick and Morty API e tenta buscar os dados dos personagens.
-
-O que ainda falta fazer é a tela do jogo em si e implementar o Glide para carregar a imagem de um personagem. A partir daí, o jogador poderá responder se o personagem está vivo ou morto na série.
+_Um aplicativo Android de estudo para demonstrar autenticação, consumo de API e UI moderna com Jetpack Compose._
 
 ---
 
-## O que Resta implementar:
-  - Terminar o _CharacterCard_ 
-  - Ajustar o sistema para puxar um _id_ aleatorio de personagem para o jogo
-  - Implementar o Glide para fazer a leitura dos personagens
-  - Terminar a função de SignOut e ForgotPassword
-## 🛠️ Tecnologias Utilizadas
+## Sobre o Projeto
 
-* **[Firebase Authentication](https://firebase.google.com/docs/auth)**: Gerencia todo o sistema de cadastro e login de usuários.
-* **[Jetpack Compose](https://developer.android.com/jetpack/compose)**: Kit de ferramentas para construir a interface do usuário de forma declarativa e moderna.
-* **[Retrofit](https://square.github.io/retrofit/)**: Cliente HTTP para fazer a comunicação com a API externa de forma simples e organizada.
-* **[The Rick and Morty API](https://rickandmortyapi.com/)**: Fonte de dados dos personagens para o quiz.
-* **[Glide](https://github.com/bumptech/glide)**: Biblioteca para carregamento e cache de imagens (a ser implementada).
+Este projeto foi criado com o objetivo principal de estudar e aplicar conceitos modernos de desenvolvimento Android. Ele serve como uma demonstração prática das seguintes habilidades:
 
-## Agradecimentos:
-  - Professor Mario Scaramuzzini pela ideia, mentoria durante as aulas android, e pelo incentivo :) <3
+* **Autenticação de Usuários (Firebase Auth)**.
+* **Consumo de API REST**.
+* **UI Declarativa (Jetpack Compose)**.
+* **Navegação de telas(Navegation Compose)**
+
+O projeto utiliza a [The Rick and Morty API](https://rickandmortyapi.com/) para buscar personagens e exibir suas informações e imagens.
+
+> Este projeto foi inspirado em uma atividade acadêmica da "Trilha de Desenvolvimento Android" oferecida pela [Samsung Ocean](https://github.com/manthuso/android-jogo-vivo-ou-morto)
+## Screenshots
+
+| Tela de Login | Tela de Cadastro | Tela Principal |
+| :-----------: | :--------------: | :-----------: |
+| <img width="180" height="360" alt="image" src="https://github.com/user-attachments/assets/4cd198cc-b6dd-4833-9dd0-4ad5a94e467a" /> | <img width="180" height="360" alt="image" src="https://github.com/user-attachments/assets/f4ee9b10-9fdb-4379-a539-9dbef85d15db" /> | <img width="180" height="360" alt="image" src="https://github.com/user-attachments/assets/d70a244a-8598-414c-8cb0-ebaa92df05fd" /> |
+  
+   
+ 
+
+## Tecnologias
+
+* **[Firebase Authentication](https://firebase.google.com/docs/auth)**: Utilizado para gerenciar todo o sistema de cadastro e login de usuários.
+* **[Jetpack Compose](https://developer.android.com/jetpack/compose)**: Responsável pela construção de 100% da interface.
+* **[Retrofit](https://square.github.io/retrofit/)**: Cliente HTTP para realizar a comunicação com a API REST do Rick and Morty.
+* **[Coil](https://coil-kt.github.io/coil/compose/)**: Biblioteca para carregamento assíncrono de imagens.
+
+## Future Features
+
+A ideia original para este projeto é evoluí-lo para um jogo de "Vivo ou Morto".:
+
+-   [ ] Implementar a lógica do jogo, puxando um `id` de personagem aleatório e pedindo para o jogador informar se o personagem da serie se encontra vivo ou morto.
+-   [ ] Finalizar a função de "Esqueci minha senha".
+-   [ ] Adicionar tratamento de erros para chamadas de rede.
+-   [ ] Criar testes unitários para os ViewModels.
+
+## Agradecimentos
+
+* Agradeço ao professor **Mario Scaramuzzini** pelo grande incentivo e mentoria :) .
